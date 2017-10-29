@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Color Variables
+msgNormal='\033[1;33m'
+msgReset='\033[0m'
+printf "${msgNormal}Generating SHA1 Checksum "
+find . -type f -print0 | xargs -0 sha1sum > ./hashlist.sha1
+printf "${msgNormal}... \n"
+printf "${msgReset} Report:"
+cat ./hashlist.sha1

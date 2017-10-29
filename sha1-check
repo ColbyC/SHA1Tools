@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Color Variables
+msgNormal='\033[1;33m'
+msgError='\033[1;31m'
+msgReset='\033[0m'
+#Vars
+FILE=$1
+if [ -z ${FILE} ]
+then
+  FILE="hashlist.sha1"
+fi
+printf "${msgNormal}Verifying SHA1 Checksum from ${FILE} \n${msgReset}"
+printf ${msgError}
+sha1sum -c ${FILE} | grep "FAILED"
+printf ${msgReset}
